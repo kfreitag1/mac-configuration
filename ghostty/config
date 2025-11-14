@@ -1,0 +1,7 @@
+theme = Catppuccin Mocha
+background = #181818
+mouse-hide-while-typing = true
+font-size = 13
+shell-integration-features = ssh-terminfo,ssh-env
+macos-titlebar-proxy-icon = hidden
+title = " "
