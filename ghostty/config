@@ -5,3 +5,12 @@ font-size = 13
 shell-integration-features = ssh-terminfo,ssh-env
 macos-titlebar-proxy-icon = hidden
 title = " "
+macos-icon = retro
+quick-terminal-position = bottom
+quick-terminal-animation-duration = 0
+keybind = global:cmd+backquote=toggle_quick_terminal
+maximize = true
+confirm-close-surface = false
+quick-terminal-space-behavior = remain
+bell-features = no-attention, no-title
+macos-hidden = always
