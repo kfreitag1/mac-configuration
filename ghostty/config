@@ -6,8 +6,9 @@ shell-integration-features = ssh-terminfo,ssh-env
 macos-titlebar-proxy-icon = hidden
 title = " "
 macos-icon = retro
-quick-terminal-position = bottom
+quick-terminal-position = right
 quick-terminal-animation-duration = 0
+quick-terminal-size = 60%
 keybind = global:cmd+backquote=toggle_quick_terminal
 maximize = true
 confirm-close-surface = false
