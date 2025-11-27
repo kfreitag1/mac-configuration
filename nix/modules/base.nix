@@ -106,6 +106,7 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 6;
