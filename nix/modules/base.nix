@@ -22,6 +22,8 @@
     stow
     starship
     fzf
+    uv
+    bun
   ];
 
   homebrew = {

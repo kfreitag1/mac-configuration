@@ -19,6 +19,9 @@
 
   homebrew = {
     enable = true;
+    taps = [
+      "LizardByte/homebrew" # For sunshine
+    ];
     casks = [
       "daisydisk"
       "lm-studio"
@@ -30,12 +33,21 @@
       "tailscale-app"
       "docker-desktop"
       "zed"
+      "blackhole-2ch"
+      "claude-code"
+      "whatsapp"
+      "comfyui"
+      "dolphin"
     ];
     brews = [
       "openfst"
       "openjdk"
       "claude-squad"
       "opencode"
+      "sunshine"
+      "gemini-cli"
+      "lazygit"
+      "lazydocker"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
