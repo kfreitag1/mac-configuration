@@ -1,9 +1,41 @@
-add_newline = false
-# A minimal left prompt
 format = """$directory$character"""
 palette = "catppuccin_mocha"
-# move the rest of the prompt to the right
-# right_format = """$all"""
+right_format = """
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+\
+$docker_context\
+\
+$bun\
+$c\
+$cpp\
+$elixir\
+$elm\
+$deno\
+$gleam\
+$golang\
+$java\
+$lua\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$typst\
+$zig\
+\
+$nix_shell\
+\
+$aws\
+$gcloud\
+$azure\
+\
+$cmd_duration\
+"""
 
 # [custom.die]
 # command = '''
@@ -24,7 +56,120 @@ error_symbol = '[➜](bold red)'
 style = "blue"
 
 [git_branch]
-format =  '[$symbol$branch(:$remote_branch)]($style)'
+symbol = ""
+format = '[ $symbol $branch]($style)'
+style = "lavender"
+
+[git_status]
+format = '[( $all_status$ahead_behind)]($style)'
+style = "lavender"
+
+[git_commit]
+
+[git_state]
+
+[cmd_duration]
+format = '[ $duration]($style)'
+style = "yellow"
+
+# Languages
+
+[bun]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[c]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[cpp]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[elixir]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[elm]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[deno]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[gleam]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[golang]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[java]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[lua]
+symbol = "󰢱"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[nodejs]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[python]
+symbol = "󰌠"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[ruby]
+symbol = "󰴭"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[rust]
+symbol = "󱘗"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[scala]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[swift]
+symbol = "󰛥"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[terraform]
+symbol = "󱁢"
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[typst]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+[zig]
+symbol = ""
+format = '[ $symbol( $version)]($style)'
+style = "lavender"
+
+# Theme
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -53,206 +198,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-
-
-
-# "$schema" = 'https://starship.rs/config-schema.json'
-
-# add_newline = false
-
-# # $username\
-# # $os\
-# # [ ](bg:red)\
-# # [](fg:green bg:sapphire)\
-# # $conda\
-# # [](fg:sapphire bg:lavender)\
-# format = """
-# [](color1)\
-# $directory\
-# [](bg:color2 fg:color1)\
-# $git_branch\
-# $git_status\
-# [](fg:color2 bg:color3)\
-# $c\
-# $rust\
-# $golang\
-# $nodejs\
-# $php\
-# $java\
-# $kotlin\
-# $haskell\
-# $python\
-# [](fg:color3 bg:color4)\
-# $time\
-# [ ](fg:color4)\
-# $cmd_duration\
-# $line_break\
-# ${custom.dice}\
-# ${custom.dice_error}\
-# $character"""
-
-# palette = 'ordered'
-# # palette = 'catppuccin_mocha'
-# # palette = 'catppuccin_frappe'
-# # palette = 'catppuccin_macchiato'
-# # palette = 'catppuccin_latte'
-
-# [os]
-# disabled = false
-# style = "bg:red fg:crust"
-
-# [os.symbols]
-# Windows = ""
-# Ubuntu = "󰕈"
-# SUSE = ""
-# Raspbian = "󰐿"
-# Mint = "󰣭"
-# Macos = "󰀵"
-# Manjaro = ""
-# Linux = "󰌽"
-# Gentoo = "󰣨"
-# Fedora = "󰣛"
-# Alpine = ""
-# Amazon = ""
-# Android = ""
-# Arch = "󰣇"
-# Artix = "󰣇"
-# CentOS = ""
-# Debian = "󰣚"
-# Redhat = "󱄛"
-# RedHatEnterprise = "󱄛"
-
-# [username]
-# show_always = true
-# style_user = "bg:red fg:crust"
-# style_root = "bg:red fg:crust"
-# format = '[ $user]($style)'
-
-# [directory]
-# style = "bg:color1 fg:darktext"
-# format = "[$path]($style)"
-# truncation_length = 3
-# truncation_symbol = "…/"
-
-# [git_branch]
-# symbol = ""
-# style = "fg:darktext bg:color2"
-# format = '[ $symbol $branch]($style)'
-
-# [git_status]
-# style = "fg:darktext bg:color2"
-# format = '[( $all_status$ahead_behind)]($style)'
-
-# [nodejs]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [c]
-# symbol = " "
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [rust]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [golang]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [php]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [java]
-# symbol = " "
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [kotlin]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [haskell]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [python]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [docker_context]
-# symbol = ""
-# style = "fg:darktext bg:color3"
-# format = '[ $symbol( $version)]($style)'
-
-# [conda]
-# symbol = "  "
-# style = "fg:crust bg:sapphire"
-# format = '[$symbol$environment ]($style)'
-# ignore_base = false
-
-# [time]
-# disabled = false
-# time_format = "%R"
-# style = "fg:darktext bg:color4"
-# format = '[ $time]($style)'
-
-# [line_break]
-# disabled = true
-
-# [custom.dice]
-# disabled = true
-# command = '''
-# '''
-# when = true
-# format = '[$output](bold fg:green)'
-# shell = ["zsh"]
-
-
-# [custom.dice_error]
-# disabled = true
-# command = '''
-# chars=('󰇊' '󰇋' '󰇌' '󰇍' '󰇎' '󰇏')
-# randomindex=$(( RANDOM % 6 + 1 ))
-# echo ${chars[$randomindex]}
-# '''
-# when = '[[ $? != 0 ]]'
-# format = '[$output](bold fg:red)'
-# shell = ["zsh"]
-
-
-# [character]
-# disabled = false
-# # success_symbol = '[${custom.dice}](bold fg:green)'
-# success_symbol = '[](bold fg:success)'
-# # success_symbol = '[❯](bold fg:green)'
-# error_symbol = '[](bold fg:fail)'
-# vimcmd_symbol = '[❮](bold fg:green)'
-# vimcmd_replace_one_symbol = '[❮](bold fg:lavender)'
-# vimcmd_replace_symbol = '[❮](bold fg:lavender)'
-# vimcmd_visual_symbol = '[❮](bold fg:yellow)'
-
-# [cmd_duration]
-# show_milliseconds = true
-# format = " in $duration "
-# style = "bg:lavender"
-# disabled = false
-# show_notifications = true
-# min_time_to_notify = 45000
-
-# [palettes.ordered]
-# color1 = "#b4befe"
-# color2 = "#74c7ec"
-# color3 = "#94e2d5"
-# color4 = "#a6e3a1"
-# darktext = "#0c0c13"
-# success = "#a6e3a1"
-# fail = "#f38ba8"
