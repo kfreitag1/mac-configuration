@@ -12,3 +12,4 @@ export PATH="/opt/homebrew/bin:$PATH"
 alias rebuild='sudo darwin-rebuild switch --flake ~/.config/nix'
 
 export XDG_CONFIG_HOME="/Users/kieran/.config"
+export EDITOR="zed --wait"
