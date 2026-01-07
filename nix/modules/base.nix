@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+  ];
+
+  nixpkgs.overlays = [
+    inputs.rust-overlay.overlays.default
   ];
 
   environment.systemPackages = with pkgs; [
@@ -14,6 +18,9 @@
     # Languages
     nodejs_24
     go
+    (rust-bin.stable.latest.default.override {
+      targets = [ "wasm32-unknown-unknown" "wasm32-wasip2" ];
+    })
 
     # CLI tools
     gh
