@@ -23,6 +23,7 @@
       "LizardByte/homebrew" # For sunshine
     ];
     casks = [
+      "google-chrome"
       "daisydisk"
       "lm-studio"
       "adguard"

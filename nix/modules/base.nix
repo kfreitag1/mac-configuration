@@ -37,7 +37,6 @@
     enable = true;
     casks = [
       "karabiner-elements"
-      "google-chrome"
       "rectangle-pro"
       "ghostty"
     ];
