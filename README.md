@@ -1,4 +1,4 @@
-# config
+# Kieran's config
 
 Dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
@@ -15,7 +15,17 @@ zsh/         # shell
 
 ## Usage
 
+Install nix https://nixos.org/download/
+
+Install homebrew https://brew.sh/
+
 ```bash
-stow .          # symlink all packages to ~/.config
-stow <package>  # symlink a single package
+sudo nix run --extra-experimental-features "nix-command flakes" nix-darwin/master#darwin-rebuild -- switch --flake ./nix
+stow .
+```
+
+Subsequent rebuilds with
+
+```bash
+rebuild
 ```
