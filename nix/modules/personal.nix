@@ -33,7 +33,6 @@
       "conductor"
       "tailscale-app"
       "docker-desktop"
-      "zed"
       "blackhole-2ch"
       "claude-code"
       "whatsapp"
@@ -44,14 +43,10 @@
       "openfst"
       "openjdk"
       "claude-squad"
-      "opencode"
       "sunshine"
       "gemini-cli"
       "lazygit"
       "lazydocker"
     ];
-    onActivation.cleanup = "zap";
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
   };
 }

@@ -39,6 +39,10 @@
       "karabiner-elements"
       "rectangle-pro"
       "ghostty"
+      "zed"
+    ];
+    brews = [
+      "opencode"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
