@@ -1,0 +1,97 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		}
+	},
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			// "j k": "vim::NormalBefore"
+		}
+	},
+	{
+		"context": "Dock",
+		"bindings": {
+			"ctrl-space h": "workspace::ActivatePaneLeft",
+			"ctrl-space l": "workspace::ActivatePaneRight",
+			"ctrl-space k": "workspace::ActivatePaneUp",
+			"ctrl-space j": "workspace::ActivatePaneDown"
+		}
+	},
+	{
+		"context": "((VimControl && !menu) || (!Editor && !Terminal))",
+		"bindings": {
+			"ctrl-space k": "workspace::ActivatePaneUp",
+			"ctrl-space j": "workspace::ActivatePaneDown",
+			"ctrl-space h": "workspace::ActivatePaneLeft",
+			"ctrl-space l": "workspace::ActivatePaneRight",
+			"ctrl-space ctrl-h": [
+				"workspace::MoveItemToPaneInDirection",
+				{ "direction": "left" }
+			],
+			"ctrl-space ctrl-j": [
+				"workspace::MoveItemToPaneInDirection",
+				{ "direction": "down" }
+			],
+			"ctrl-space ctrl-k": [
+				"workspace::MoveItemToPaneInDirection",
+				{ "direction": "up" }
+			],
+			"ctrl-space ctrl-l": [
+				"workspace::MoveItemToPaneInDirection",
+				{ "direction": "right" }
+			]
+		}
+	},
+	{
+		"context": "Pane",
+		"bindings": {
+			"cmd-shift-g": null
+		}
+	},
+	{
+		"context": "ContextEditor > Editor",
+		"bindings": {
+			"cmd-shift-g": null
+		}
+	},
+ {
+  "context": "Editor",
+  "bindings": {
+   "ctrl-w": null
+  }
+ },
+ {
+  "context": "(VimControl && !menu)",
+  "bindings": {
+   "ctrl-space d": "editor::GoToDefinitionSplit"
+  }
+ },
+ {
+  "context": "(VimControl && !menu)",
+  "bindings": {
+   "ctrl-space ctrl-w": "editor::GoToTypeDefinitionSplit"
+  }
+ },
+ {
+  "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+  "bindings": {
+   "ctrl-space o": "workspace::CloseInactiveTabsAndPanes"
+  }
+ },
+ {
+  "context": "(Workspace && !Terminal)",
+  "bindings": {
+   "ctrl-space n": "workspace::NewFile"
+  }
+ }
+]
