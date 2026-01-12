@@ -11,10 +11,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # GUI Applications (Shared)
-    obsidian
-    bitwarden-desktop
-
     # Languages
     nodejs_24
     go
@@ -40,6 +36,8 @@
       "rectangle-pro"
       "ghostty"
       "zed"
+      "obsidian"
+      "bitwarden"
     ];
     brews = [
       "opencode"
