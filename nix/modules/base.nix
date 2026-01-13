@@ -38,6 +38,7 @@
       "zed"
       "obsidian"
       "bitwarden"
+      "monitorcontrol"
     ];
     brews = [
       "opencode"
