@@ -1,3 +1,5 @@
 [user]
     name = Kieran Freitag
     email = kfreitag@kieran.ca
+[core]
+    editor = "zed --wait"
