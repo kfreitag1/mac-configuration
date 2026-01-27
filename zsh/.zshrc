@@ -9,7 +9,9 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 export PATH="/opt/homebrew/bin:$PATH"
 
+# aliases
 alias rebuild='sudo darwin-rebuild switch --flake ~/.config/nix'
+clauded() { claude --dangerously-skip-permissions }
 
 export XDG_CONFIG_HOME="/Users/kieran/.config"
 export EDITOR="zed --wait"
