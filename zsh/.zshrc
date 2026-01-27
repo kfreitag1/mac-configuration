@@ -15,3 +15,6 @@ clauded() { claude --dangerously-skip-permissions }
 
 export XDG_CONFIG_HOME="/Users/kieran/.config"
 export EDITOR="zed --wait"
+
+# git autocomplete
+autoload -Uz compinit && compinit
