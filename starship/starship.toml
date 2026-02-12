@@ -1,12 +1,10 @@
-format = """$directory$character"""
+format = """$directory${custom.die_success}${custom.die_error}${custom.die_vim} """
 palette = "catppuccin_mocha"
 right_format = """
 $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-\
-$docker_context\
 \
 $bun\
 $c\
@@ -28,29 +26,45 @@ $terraform\
 $typst\
 $zig\
 \
-$nix_shell\
-\
-$aws\
-$gcloud\
-$azure\
-\
 $cmd_duration\
 """
 
-# [custom.die]
-# command = '''
-# chars=('󰇊' '󰇋' '󰇌' '󰇍' '󰇎' '󰇏')
-# randomindex=$(( RANDOM % 6 + 1 ))
-# echo ${chars[$randomindex]}
-# '''
-# when = true
-# format = '[$output](green)'
-# shell = ["zsh"]
+# Unused for now
+# $aws\
+# $gcloud\
+# $azure\
+# $nix_shell\
+# $docker_context\
 
-[character]
-vimcmd_symbol = "[N] >>>"
-success_symbol = "[➜](bold green)"
-error_symbol = '[➜](bold red)'
+[custom.die_success]
+command = '''
+chars=('󰇊' '󰇋' '󰇌' '󰇍' '󰇎' '󰇏')
+randomindex=$(( RANDOM % 6 + 1 ))
+echo ${chars[$randomindex]}
+'''
+when = '[ "$VIM_MODE" = "insert" ] && [ -n "$LAST_CMD_OK" ]'
+format = '[$output](green)'
+shell = ["zsh"]
+
+[custom.die_error]
+command = '''
+chars=('󰇊' '󰇋' '󰇌' '󰇍' '󰇎' '󰇏')
+randomindex=$(( RANDOM % 6 + 1 ))
+echo ${chars[$randomindex]}
+'''
+when = '[ "$VIM_MODE" = "insert" ] && [ -z "$LAST_CMD_OK" ]'
+format = '[$output](red)'
+shell = ["zsh"]
+
+[custom.die_vim]
+command = '''
+chars=('󰇊' '󰇋' '󰇌' '󰇍' '󰇎' '󰇏')
+randomindex=$(( RANDOM % 6 + 1 ))
+echo ${chars[$randomindex]}
+'''
+when = '[ "$VIM_MODE" = "normal" ]'
+format = '[$output](yellow)'
+shell = ["zsh"]
 
 [directory]
 style = "blue"
