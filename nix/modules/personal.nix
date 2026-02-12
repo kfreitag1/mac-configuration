@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  environment.variables.MACHINE_PROFILE = "personal";
+
   environment.systemPackages = with pkgs; [
     # GUI Applications (Personal)
     jetbrains.webstorm

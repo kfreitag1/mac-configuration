@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
-  # Ensure Determinate manages nix, not nix-darwin
-  nix.enable = false;
+  environment.variables.MACHINE_PROFILE = "work";
 
   environment.systemPackages = with pkgs; [
 
