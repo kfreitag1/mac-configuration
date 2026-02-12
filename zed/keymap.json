@@ -10,12 +10,34 @@
 		"context": "Workspace",
 		"bindings": {
 			// "shift shift": "file_finder::Toggle"
+			"ctrl-space p": "project_panel::ToggleFocus",
+			"ctrl-space g": "git_panel::ToggleFocus",
+			"ctrl-space i": "terminal_panel::Toggle",
+			"ctrl-space w": "outline_panel::ToggleFocus"
 		}
 	},
 	{
 		"context": "Editor && vim_mode == insert",
 		"bindings": {
 			// "j k": "vim::NormalBefore"
+		}
+	},
+	{
+		"context": "ProjectPanel",
+		"bindings": {
+			"ctrl-space p": "workspace::ToggleLeftDock"
+		}
+	},
+	{
+		"context": "GitPanel",
+		"bindings": {
+			"ctrl-space g": "workspace::ToggleLeftDock"
+		}
+	},
+	{
+		"context": "OutlinePanel",
+		"bindings": {
+			"ctrl-space w": "workspace::ToggleLeftDock"
 		}
 	},
 	{
@@ -55,7 +77,7 @@
 	{
 		"context": "Pane",
 		"bindings": {
-			"cmd-shift-g": null
+			"cmd-shift-g": null,
 		}
 	},
 	{
