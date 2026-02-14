@@ -1,6 +1,7 @@
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 export LAST_CMD_OK="1"
+export VIM_MODE="insert"
 
 # hack to extract the exit status into a flag for custom
 # modules in starship
