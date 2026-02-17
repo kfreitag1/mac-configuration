@@ -2,6 +2,9 @@
 {
   environment.variables.MACHINE_PROFILE = "work";
 
+  # nix-daemon is managed by tec, not nix-darwin
+  nix.enable = false;
+
   environment.systemPackages = with pkgs; [
 
   ];
