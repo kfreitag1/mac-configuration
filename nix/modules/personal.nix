@@ -40,6 +40,9 @@
       "whatsapp"
       "comfyui"
       "dolphin"
+      "markedit"
+      "yaak"
+      "1password"
     ];
     brews = [
       "openfst"

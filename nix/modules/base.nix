@@ -32,7 +32,6 @@
       "ghostty"
       "zed"
       "obsidian"
-      "bitwarden"
       "monitorcontrol"
     ];
     brews = [
