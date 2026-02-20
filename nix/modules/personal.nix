@@ -4,9 +4,6 @@
 
   environment.systemPackages = with pkgs; [
     # GUI Applications (Personal)
-    jetbrains.webstorm
-    jetbrains.rust-rover
-    jetbrains.pycharm-community
     zoom-us
     vscode
 
