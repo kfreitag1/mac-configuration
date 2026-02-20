@@ -43,6 +43,7 @@
   };
 
   system.defaults = {
+    trackpad.FirstClickThreshold = 0;
     dock.showhidden = true;
     dock.autohide = true;
     dock.autohide-delay = 0.0;
