@@ -49,6 +49,7 @@ bindkey -v
 autoload -Uz compinit && compinit
 
 # aliases
-alias clauded='claude --dangerously-skip-permissions'
+alias cld='claude --dangerously-skip-permissions'
+alias clds='claude --dangerously-skip-permissions --model sonnet'
 
 [[ -f "$ZDOTDIR/.zshrc.$MACHINE_PROFILE" ]] && source "$ZDOTDIR/.zshrc.$MACHINE_PROFILE"
