@@ -26,6 +26,9 @@
 
   homebrew = {
     enable = true;
+    taps = [
+      "manaflow-ai/cmux"
+    ];
     casks = [
       "karabiner-elements"
       "rectangle-pro"
@@ -33,6 +36,7 @@
       "zed"
       "obsidian"
       "monitorcontrol"
+      "cmux"
     ];
     brews = [
       "opencode"
