@@ -14,13 +14,17 @@
     taps = [ ];
     brews = [
       "yarn"
-      "promptfoo"
       "ykman"
       "docker"
       "colima"
       "docker-compose"
       "ruby"
       "pnpm"
+    ];
+    casks = [
+      "google-cloud-sdk"
+      "proxyman"
+      "charles@4"
     ];
   };
 }
