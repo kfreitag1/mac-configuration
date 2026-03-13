@@ -6,114 +6,108 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-	{
-		"context": "Workspace",
-		"bindings": {
-			// "shift shift": "file_finder::Toggle"
-			"ctrl-space p": "project_panel::ToggleFocus",
-			"ctrl-space g": "git_panel::ToggleFocus",
-			"ctrl-space i": "terminal_panel::Toggle",
-			"ctrl-space w": "outline_panel::ToggleFocus"
-		}
-	},
-	{
-		"context": "Editor && vim_mode == insert",
-		"bindings": {
-			// "j k": "vim::NormalBefore"
-		}
-	},
-	{
-		"context": "ProjectPanel",
-		"bindings": {
-			"ctrl-space p": "workspace::ToggleLeftDock"
-		}
-	},
-	{
-		"context": "GitPanel",
-		"bindings": {
-			"ctrl-space g": "workspace::ToggleLeftDock"
-		}
-	},
-	{
-		"context": "OutlinePanel",
-		"bindings": {
-			"ctrl-space w": "workspace::ToggleLeftDock"
-		}
-	},
-	{
-		"context": "Dock",
-		"bindings": {
-			"ctrl-space h": "workspace::ActivatePaneLeft",
-			"ctrl-space l": "workspace::ActivatePaneRight",
-			"ctrl-space k": "workspace::ActivatePaneUp",
-			"ctrl-space j": "workspace::ActivatePaneDown"
-		}
-	},
-	{
-		"context": "((VimControl && !menu) || (!Editor && !Terminal))",
-		"bindings": {
-			"ctrl-space k": "workspace::ActivatePaneUp",
-			"ctrl-space j": "workspace::ActivatePaneDown",
-			"ctrl-space h": "workspace::ActivatePaneLeft",
-			"ctrl-space l": "workspace::ActivatePaneRight",
-			"ctrl-space ctrl-h": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "left" }
-			],
-			"ctrl-space ctrl-j": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "down" }
-			],
-			"ctrl-space ctrl-k": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "up" }
-			],
-			"ctrl-space ctrl-l": [
-				"workspace::MoveItemToPaneInDirection",
-				{ "direction": "right" }
-			]
-		}
-	},
-	{
-		"context": "Pane",
-		"bindings": {
-			"cmd-shift-g": null,
-		}
-	},
-	{
-		"context": "ContextEditor > Editor",
-		"bindings": {
-			"cmd-shift-g": null
-		}
-	},
- {
-  "context": "Editor",
-  "bindings": {
-   "ctrl-w": null
-  }
- },
- {
-  "context": "(VimControl && !menu)",
-  "bindings": {
-   "ctrl-space d": "editor::GoToDefinitionSplit"
-  }
- },
- {
-  "context": "(VimControl && !menu)",
-  "bindings": {
-   "ctrl-space ctrl-w": "editor::GoToTypeDefinitionSplit"
-  }
- },
- {
-  "context": "((VimControl && !menu) || (!Editor && !Terminal))",
-  "bindings": {
-   "ctrl-space o": "workspace::CloseInactiveTabsAndPanes"
-  }
- },
- {
-  "context": "(Workspace && !Terminal)",
-  "bindings": {
-   "ctrl-space n": "workspace::NewFile"
-  }
- }
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-space p": "project_panel::ToggleFocus",
+      "ctrl-space g": "git_panel::ToggleFocus",
+      "ctrl-space i": "terminal_panel::ToggleFocus",
+      "ctrl-space w": "outline_panel::ToggleFocus",
+      "ctrl-space h": "workspace::ToggleLeftDock",
+      "ctrl-space j": "workspace::ToggleBottomDock",
+      "ctrl-space l": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-space ctrl-h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" },
+      ],
+      "ctrl-space ctrl-j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" },
+      ],
+      "ctrl-space ctrl-k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" },
+      ],
+      "ctrl-space ctrl-l": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" },
+      ],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-tab": "workspace::ActivateNextPane",
+      "ctrl-shift-tab": "workspace::ActivatePreviousPane",
+      "cmd-shift-g": null,
+    },
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "ctrl-tab": null,
+      "ctrl-shift-tab": null,
+    },
+  },
+  {
+    "context": "ContextEditor > Editor",
+    "bindings": {
+      "cmd-shift-g": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-w": null,
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-space d": "editor::GoToDefinitionSplit",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-space ctrl-w": "editor::GoToTypeDefinitionSplit",
+    },
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "ctrl-space o": "workspace::CloseInactiveTabsAndPanes",
+    },
+  },
+  {
+    "context": "(Workspace && !Terminal)",
+    "bindings": {
+      "ctrl-space n": "workspace::NewFile",
+    },
+  },
 ]
