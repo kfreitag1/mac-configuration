@@ -14,6 +14,7 @@
     # CLI
     neovim
     docker
+    clang-tools
   ];
 
   homebrew = {
@@ -40,6 +41,7 @@
       "markedit"
       "yaak"
       "1password"
+      "qbittorrent"
     ];
     brews = [
       "openfst"
@@ -49,6 +51,7 @@
       "gemini-cli"
       "lazygit"
       "lazydocker"
+      "pandoc"
     ];
   };
 }
