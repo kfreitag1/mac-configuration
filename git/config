@@ -3,3 +3,12 @@
     email = kfreitag@kieran.ca
 [core]
     editor = "zed --wait"
+[alias]
+    s = "!printf '\\033[90m> git status\\033[0m\\n' && git status \"$@\""
+    c = "!printf '\\033[90m> git commit\\033[0m\\n' && git commit \"$@\""
+    sw = "!printf '\\033[90m> git switch\\033[0m\\n' && git switch \"$@\""
+    b = "!printf '\\033[90m> git branch\\033[0m\\n' && git branch \"$@\""
+    d = "!printf '\\033[90m> git diff\\033[0m\\n' && git diff \"$@\""
+    co = "!printf '\\033[90m> git checkout\\033[0m\\n' && git checkout \"$@\""
+    amne = "!printf '\\033[90m> git commit --amend --no-edit\\033[0m\\n' && git commit --amend --no-edit \"$@\""
+    ls = "!printf '\\033[90m> git log --oneline --decorate --graph --all\\033[0m\\n' && git log --oneline --decorate --graph --all \"$@\""

@@ -51,5 +51,8 @@ autoload -Uz compinit && compinit
 # aliases
 alias cld='claude --dangerously-skip-permissions'
 alias clds='claude --dangerously-skip-permissions --model sonnet'
+alias g='git'
+alias gtcon='git add . && gt continue'
+
 
 [[ -f "$ZDOTDIR/.zshrc.$MACHINE_PROFILE" ]] && source "$ZDOTDIR/.zshrc.$MACHINE_PROFILE"
