@@ -113,6 +113,7 @@
 
   environment.variables = {
     ZDOTDIR = "$HOME/.config/zsh";
+    CLAUDE_CONFIG_DIR = "$HOME/.config/claude";
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;

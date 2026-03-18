@@ -1,0 +1,37 @@
+{
+  "apiKeyHelper": "/opt/dev/bin/user/devx llm-gateway print-token --key",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://proxy.shopify.ai/vendors/anthropic-claude-code",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(jq:*)",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Bash(dev:*)",
+      "Bash(pnpm:*)",
+      "Bash(shadowenv exec -- pnpm:*)"
+    ],
+    "deny": [],
+    "defaultMode": "dontAsk"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/kieran/.config/claude/hooks/skills-update.mjs",
+            "timeout": 10000
+          }
+        ]
+      }
+    ]
+  },
+  "skipDangerousModePermissionPrompt": true
+}
