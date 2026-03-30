@@ -24,7 +24,6 @@
     casks = [
       "google-cloud-sdk"
       "proxyman"
-      "charles@4"
     ];
   };
 }

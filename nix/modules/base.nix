@@ -39,7 +39,10 @@
       "cmux"
     ];
     brews = [
+      "chrome-devtools-mcp"
       "opencode"
+      "pi-coding-agent"
+      "skills"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
