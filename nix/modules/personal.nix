@@ -33,7 +33,6 @@
       "tailscale-app"
       "docker-desktop"
       "blackhole-2ch"
-      "claude-code"
       "whatsapp"
       "comfyui"
       "dolphin"
@@ -41,6 +40,7 @@
       "yaak"
       "1password"
       "qbittorrent"
+      "claude-code"
     ];
     brews = [
       "openfst"
