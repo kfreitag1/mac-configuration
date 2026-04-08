@@ -37,8 +37,10 @@
       "obsidian"
       "monitorcontrol"
       "cmux"
+      "lm-studio"
     ];
     brews = [
+      "agent-browser"
       "chrome-devtools-mcp"
       "opencode"
       "pi-coding-agent"

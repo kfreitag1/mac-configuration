@@ -25,7 +25,6 @@
     casks = [
       "google-chrome"
       "daisydisk"
-      "lm-studio"
       "adguard"
       "claude"
       "dolphin"
