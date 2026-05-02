@@ -16,14 +16,14 @@
       "ctrl-space w": "outline_panel::ToggleFocus",
       "ctrl-space h": "workspace::ToggleLeftDock",
       "ctrl-space j": "workspace::ToggleBottomDock",
-      "ctrl-space l": "workspace::ToggleRightDock",
-    },
+      "ctrl-space l": "workspace::ToggleRightDock"
+    }
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
-    },
+    }
   },
   {
     "context": "Terminal",
@@ -31,8 +31,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight",
-    },
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
   },
   {
     "context": "((VimControl && !menu) || (!Editor && !Terminal))",
@@ -43,71 +43,75 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-space ctrl-h": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" },
+        { "direction": "left" }
       ],
       "ctrl-space ctrl-j": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" },
+        { "direction": "down" }
       ],
       "ctrl-space ctrl-k": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" },
+        { "direction": "up" }
       ],
       "ctrl-space ctrl-l": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" },
-      ],
-    },
+        { "direction": "right" }
+      ]
+    }
   },
   {
     "context": "Pane",
     "bindings": {
       "ctrl-tab": "workspace::ActivateNextPane",
       "ctrl-shift-tab": "workspace::ActivatePreviousPane",
-      "cmd-shift-g": null,
-    },
+      "cmd-shift-g": null
+    }
   },
   {
     "context": "TabSwitcher",
     "bindings": {
       "ctrl-tab": null,
-      "ctrl-shift-tab": null,
-    },
+      "ctrl-shift-tab": null
+    }
   },
   {
     "context": "ContextEditor > Editor",
     "bindings": {
-      "cmd-shift-g": null,
-    },
+      "cmd-shift-g": null
+    }
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-w": null,
-    },
+      "ctrl-w": null
+    }
   },
   {
     "context": "(VimControl && !menu)",
     "bindings": {
-      "ctrl-space d": "editor::GoToDefinitionSplit",
-    },
+      "ctrl-space d": "editor::GoToDefinitionSplit"
+    }
   },
   {
     "context": "(VimControl && !menu)",
     "bindings": {
-      "ctrl-space ctrl-w": "editor::GoToTypeDefinitionSplit",
-    },
+      "ctrl-space ctrl-w": "editor::GoToTypeDefinitionSplit"
+    }
   },
   {
     "context": "((VimControl && !menu) || (!Editor && !Terminal))",
     "bindings": {
-      "ctrl-space o": "workspace::CloseInactiveTabsAndPanes",
-    },
+      "ctrl-space o": "workspace::CloseInactiveTabsAndPanes"
+    }
   },
   {
     "context": "(Workspace && !Terminal)",
     "bindings": {
       "ctrl-space n": "workspace::NewFile",
-    },
-  },
+      "ctrl-space t": [
+        "task::Spawn",
+        { "task_name": "wtp: claim (fzf picker)" }
+      ]
+    }
+  }
 ]
