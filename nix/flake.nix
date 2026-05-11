@@ -5,14 +5,17 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin }:
+  outputs = inputs@{ self, nixpkgs, nix-darwin, agenix }:
   let
     systemarch = "aarch64-darwin";
 
     personalConfig = { pkgs, ... }: {
       imports = [
+        agenix.darwinModules.default
+        ./agenix-import.nix
         ./modules/base.nix
         ./modules/personal.nix
       ];

@@ -22,6 +22,7 @@
     fzf
     uv
     bun
+    inputs.agenix.packages.${pkgs.system}.default
   ];
 
   homebrew = {
@@ -119,6 +120,7 @@
   environment.variables = {
     ZDOTDIR = "$HOME/.config/zsh";
     CLAUDE_CONFIG_DIR = "$HOME/.config/claude";
+    PI_CODING_AGENT_DIR = "$HOME/.config/pi/agent";
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
