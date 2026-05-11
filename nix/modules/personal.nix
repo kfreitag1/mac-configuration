@@ -41,6 +41,7 @@
       "1password"
       "qbittorrent"
       "claude-code"
+      "anki"
     ];
     brews = [
       "openfst"
