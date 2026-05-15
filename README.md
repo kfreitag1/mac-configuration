@@ -24,6 +24,8 @@ sudo nix run --extra-experimental-features "nix-command flakes" nix-darwin/maste
 stow .
 ```
 
+The `personal/` and `work/` packages overlay machine-specific files (e.g. `settings.local.json`, `auth.json`) onto the shared tree. `stow .` skips them via `.stowrc`; the matching overlay is stowed automatically by the nix activation script in `nix/modules/{personal,work}.nix`.
+
 Subsequent rebuilds with
 
 ```bash

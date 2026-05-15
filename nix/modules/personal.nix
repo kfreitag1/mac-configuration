@@ -2,6 +2,10 @@
 {
   environment.variables.MACHINE_PROFILE = "personal";
 
+  system.activationScripts.stowProfile.text = ''
+    ${pkgs.stow}/bin/stow -d /Users/kieran/config -t /Users/kieran/.config personal
+  '';
+
   environment.systemPackages = with pkgs; [
     # GUI Applications (Personal)
     zoom-us

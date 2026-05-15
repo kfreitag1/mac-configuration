@@ -2,6 +2,10 @@
 {
   environment.variables.MACHINE_PROFILE = "work";
 
+  system.activationScripts.stowProfile.text = ''
+    ${pkgs.stow}/bin/stow -d /Users/kieran/config -t /Users/kieran/.config work
+  '';
+
   # nix-daemon is managed by tec, not nix-darwin
   nix.enable = false;
 
