@@ -21,6 +21,7 @@
     enable = true;
     taps = [
       "LizardByte/homebrew" # For sunshine
+      "shopify/shopify"
     ];
     casks = [
       "google-chrome"
@@ -52,6 +53,7 @@
       "lazygit"
       "lazydocker"
       "pandoc"
+      "shopify-cli"
     ];
   };
 }
