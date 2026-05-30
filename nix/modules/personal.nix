@@ -47,11 +47,11 @@
       "qbittorrent"
       "claude-code"
       "anki"
+      "the-unarchiver"
     ];
     brews = [
       "openfst"
       "openjdk"
-      "claude-squad"
       "sunshine"
       "gemini-cli"
       "lazygit"
