@@ -1,0 +1,44 @@
+#!/bin/sh
+# Zed RuboCop LSP launcher.
+#
+# RuboCop ships a native language server (`rubocop --lsp`) providing formatting,
+# lint diagnostics, and autocorrect code-actions. We route it through the zone's
+# shadowenv + bundle so it loads the project's .rubocop.yml, custom cops, and
+# plugins (rubocop-sorbet, rubocop-rails, ...) with the correct Ruby.
+#
+# Resolution:
+#   1. Nearest Gemfile.lock upward pins rubocop -> shadowenv exec -- bundle exec
+#      rubocop --lsp (zone-aware, loads the project's full RuboCop config).
+#   2. Otherwise -> global `rubocop --lsp` on PATH.
+#
+# If rubocop can't start, Zed reports it once and Sorbet keeps running.
+# Invoked by Zed via lsp.rubocop.binary.path in settings.json.
+
+set -eu
+
+SHADOWENV="/Users/kieran/.local/state/tec/profiles/base/current/global/bin/shadowenv"
+
+# Nearest ancestor (or self) containing a Gemfile. Stops at $HOME.
+find_gemfile_dir() {
+  dir=$PWD
+  while [ -n "$dir" ] && [ "$dir" != "/" ]; do
+    [ -f "$dir/Gemfile" ] && { printf '%s\n' "$dir"; return 0; }
+    [ "$dir" = "$HOME" ] && break
+    parent=$(dirname "$dir")
+    [ "$parent" = "$dir" ] && break
+    dir=$parent
+  done
+  return 1
+}
+
+if gemfile_dir=$(find_gemfile_dir) && \
+   [ -f "$gemfile_dir/Gemfile.lock" ] && \
+   grep -qE '^[[:space:]]+rubocop[[:space:]]+\(' "$gemfile_dir/Gemfile.lock"; then
+  cd "$gemfile_dir"
+  if [ -x "$SHADOWENV" ]; then
+    exec "$SHADOWENV" exec -- bundle exec rubocop --lsp "$@"
+  fi
+  exec bundle exec rubocop --lsp "$@"
+fi
+
+exec rubocop --lsp "$@"

@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "unified",
   "cli_default_open_behavior": "new_window",
   "project_panel": {
     "dock": "left",
@@ -21,10 +22,27 @@
     "dock": "left",
   },
   "lsp": {
-    "ruby-lsp": {
+    "rubocop": {
+      // RuboCop's native language server (`rubocop --lsp`) for formatting and
+      // lint autocorrect on save. The launcher routes through the zone's
+      // shadowenv + bundle so it loads the project's .rubocop.yml, custom cops,
+      // and plugins (rubocop-sorbet, rubocop-rails, ...).
+      // Source: zed/bin/rubocop-launcher in this dotfiles repo, stowed here.
       "binary": {
-        "path": "bundle",
-        "arguments": ["exec", "ruby-lsp"],
+        "path": "/Users/kieran/.config/zed/bin/rubocop-launcher",
+        "arguments": [],
+      },
+    },
+    "sorbet": {
+      // Sorbet LSP via a launcher that locates the sorbet binary inside the
+      // zone's bundle and execs it directly with --lsp. Only does anything if
+      // a `sorbet/config` exists at or above the project root — otherwise
+      // exits cleanly and Zed disables it for the session. Provides hover /
+      // completion / go-to-def for everything, incl. Rails model columns &
+      // associations via Tapioca's generated sorbet/rbi/dsl/** RBIs.
+      "binary": {
+        "path": "/Users/kieran/.config/zed/bin/sorbet-launcher",
+        "arguments": [],
       },
     },
     "vtsls": {
@@ -66,14 +84,21 @@
   "formatter": "prettier",
   "languages": {
     "Ruby": {
+      // sorbet: types, hover, go-to-def, completion — incl. Rails model columns
+      //   & associations via Tapioca's generated sorbet/rbi/dsl/** RBIs.
+      // rubocop: formatting + lint autocorrect on save (pinned as formatter
+      //   below, since sorbet doesn't format).
       "language_servers": [
-        "ruby-lsp",
+        "sorbet",
+        "rubocop",
+        "!ruby-lsp",
         "!solargraph",
         "!steep",
         "!kanayago",
-        "!rubocop",
-        "!sorbet",
       ],
+      "formatter": { "language_server": { "name": "rubocop" } },
+      "format_on_save": "on",
+      "tab_size": 2,
     },
   },
   "file_scan_exclusions": [

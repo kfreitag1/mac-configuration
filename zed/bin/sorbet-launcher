@@ -1,0 +1,69 @@
+#!/bin/sh
+# Zed Sorbet LSP launcher.
+#
+# Why a launcher?
+#   * Sorbet LSP must run from a directory containing `sorbet/config`.
+#   * In World, that means launching from inside a Sorbet-enabled zone
+#     (e.g. //areas/core/shopify) and routing through shadowenv so the
+#     zone's Ruby + bundle are loaded.
+#   * Shopify Core ships `bin/srb tc` and `bin/run-typecheck` but BOTH pipe
+#     sorbet's stdout through `tee`, which corrupts the LSP protocol. We
+#     locate sorbet-static's binary via the project bundle and exec it
+#     directly.
+#   * If no `sorbet/config` is found upward from cwd, exit non-zero so Zed
+#     simply reports "sorbet failed to start" once and moves on. ruby-lsp
+#     continues running unaffected.
+
+set -eu
+
+SHADOWENV="/Users/kieran/.local/state/tec/profiles/base/current/global/bin/shadowenv"
+
+# Find the nearest ancestor (or self) containing sorbet/config. Stops at $HOME.
+find_sorbet_root() {
+  dir=$PWD
+  while [ -n "$dir" ] && [ "$dir" != "/" ]; do
+    if [ -f "$dir/sorbet/config" ]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    [ "$dir" = "$HOME" ] && break
+    parent=$(dirname "$dir")
+    [ "$parent" = "$dir" ] && break
+    dir=$parent
+  done
+  return 1
+}
+
+if ! ROOT=$(find_sorbet_root); then
+  echo "sorbet-launcher: no sorbet/config found at or above $PWD; refusing to start." >&2
+  exit 1
+fi
+
+cd "$ROOT"
+
+CACHE_DIR=".dev/sorbet-cache"
+mkdir -p "$CACHE_DIR"
+export CACHE_DIR
+
+# Forward any args Zed passes us (typically none — we control the args here).
+# The `bash -c` indirection lets us resolve the sorbet binary path inside the
+# shadowenv-loaded environment, then exec the binary directly (no tee).
+SHELL_CMD='
+  set -eu
+  sorbet_dir=$(bundle exec ruby -e "puts Gem::Specification.find_by_name(\"sorbet-static\").gem_dir") \
+    || { echo "sorbet-launcher: could not locate sorbet-static gem (run bundle install?)" >&2; exit 1; }
+  sorbet_bin="$sorbet_dir/libexec/sorbet"
+  [ -x "$sorbet_bin" ] || { echo "sorbet-launcher: sorbet binary not found at $sorbet_bin" >&2; exit 1; }
+  exec "$sorbet_bin" \
+    --lsp \
+    --disable-watchman \
+    --cache-dir="$CACHE_DIR" \
+    --enable-all-experimental-lsp-features \
+    "$@"
+'
+
+if [ -x "$SHADOWENV" ]; then
+  exec "$SHADOWENV" exec -- bash -c "$SHELL_CMD" sorbet-launcher "$@"
+fi
+
+exec bash -c "$SHELL_CMD" sorbet-launcher "$@"
