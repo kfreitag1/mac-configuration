@@ -14,8 +14,6 @@
 
     personalConfig = { pkgs, ... }: {
       imports = [
-        agenix.darwinModules.default
-        ./agenix-import.nix
         ./modules/base.nix
         ./modules/personal.nix
       ];

@@ -1,5 +1,11 @@
 { pkgs, inputs, ... }:
 {
+  imports = [
+    inputs.agenix.darwinModules.default
+    ../agenix-import.nix
+    ./profile-files.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   fonts.packages = with pkgs; [
