@@ -37,10 +37,15 @@ zle -N zle-line-init
 
 eval "$(starship init zsh)"
 
-alias rebuild='sudo darwin-rebuild switch --flake ~/.config/nix'
+if [ -r /run/agenix/github-token ]; then
+  export NIX_CONFIG="access-tokens = github.com=$(cat /run/agenix/github-token)"
+fi
+
+alias rebuild='sudo -E darwin-rebuild switch --flake ~/.config/nix'
 
 export XDG_CONFIG_HOME="/Users/kieran/.config"
 export EDITOR="zed --wait"
+export LESS='-R --mouse --wheel-lines=3'
 
 # zsh vim mode
 bindkey -v

@@ -1,0 +1,5 @@
+{
+  "lastChangelogVersion": "0.73.1",
+  "defaultProvider": "openrouter",
+  "defaultModel": "z-ai/glm-4.5-air:free"
+}

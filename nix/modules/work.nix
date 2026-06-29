@@ -1,21 +1,23 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  repoRoot = "${config.users.users.${config.system.primaryUser}.home}/Developer/mac-configuration";
+in
 {
   environment.variables.MACHINE_PROFILE = "work";
 
-  system.activationScripts.stowProfile.text = ''
-    ${pkgs.stow}/bin/stow -d /Users/kieran/config -t /Users/kieran/.config work
-  '';
+  my.profileFiles.sourceDir = ../../work;
+  my.profileFiles.linkSourceDir = "${repoRoot}/work";
 
   # nix-daemon is managed by tec, not nix-darwin
   nix.enable = false;
 
   environment.systemPackages = with pkgs; [
-
+    lazygit
+    delta
   ];
 
   homebrew = {
     enable = true;
-    taps = [ ];
     brews = [
       "yarn"
       "ykman"
@@ -24,10 +26,13 @@
       "docker-compose"
       "ruby"
       "pnpm"
+      "redis"
     ];
     casks = [
       "google-cloud-sdk"
       "proxyman"
+      "keycastr"
+      "redisinsight"
     ];
   };
 }

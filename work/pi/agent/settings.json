@@ -1,0 +1,12 @@
+{
+  "npmCommand": ["pnpm"],
+  "lastChangelogVersion": "0.75.3",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.5",
+  "compaction": {
+    "enabled": false
+  },
+  "defaultThinkingLevel": "xhigh",
+  "theme": "dark",
+  "packages": ["git:github.com/shopify-playground/shop-pi-fy"]
+}

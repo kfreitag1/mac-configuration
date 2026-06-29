@@ -1,22 +1,18 @@
-{ config, pkgs, lib, ... }:
+{ lib, ... }:
 
 let
-  secretsConfig = import ./secrets/secrets.nix;
-
-  secretNames = lib.mapAttrsToList (name: _:
-    lib.removeSuffix ".age" name
-  ) secretsConfig;
-
   mkSecret = name: {
     file = ./secrets/${name}.age;
     mode = "400";
     owner = "kieran";
     group = "staff";
   };
+
+  commonSecrets = [ "github-token" ];
 in
 {
   age = {
-    secrets = lib.genAttrs secretNames mkSecret;
+    secrets = lib.genAttrs commonSecrets mkSecret;
     identityPaths = [ "/Users/kieran/.ssh/id_ed25519" ];
   };
 }

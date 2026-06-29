@@ -1,10 +1,19 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  repoRoot = "${config.users.users.${config.system.primaryUser}.home}/Developer/mac-configuration";
+in
 {
   environment.variables.MACHINE_PROFILE = "personal";
 
-  system.activationScripts.stowProfile.text = ''
-    ${pkgs.stow}/bin/stow -d /Users/kieran/config -t /Users/kieran/.config personal
-  '';
+  age.secrets.openrouter-api-key = {
+    file = ../secrets/openrouter-api-key.age;
+    mode = "400";
+    owner = "kieran";
+    group = "staff";
+  };
+
+  my.profileFiles.sourceDir = ../../personal;
+  my.profileFiles.linkSourceDir = "${repoRoot}/personal";
 
   environment.systemPackages = with pkgs; [
     # GUI Applications (Personal)
@@ -43,7 +52,6 @@
       "dolphin"
       "markedit"
       "yaak"
-      "1password"
       "qbittorrent"
       "claude-code"
       "anki"

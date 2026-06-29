@@ -1,10 +1,18 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     inputs.agenix.darwinModules.default
     ../agenix-import.nix
     ./profile-files.nix
   ];
+
+  system.activationScripts.postActivation.text = ''
+    if [ -r ${config.age.secrets.github-token.path} ]; then
+      ( umask 077
+        printf 'access-tokens = github.com=%s\n' \
+          "$(cat ${config.age.secrets.github-token.path})" > /etc/nix/access-tokens.conf )
+    fi
+  '';
 
   nixpkgs.config.allowUnfree = true;
 
@@ -45,6 +53,7 @@
       "monitorcontrol"
       "cmux"
       "lm-studio"
+      "1password"
     ];
     brews = [
       "agent-browser"
@@ -52,10 +61,12 @@
       "opencode"
       "pi-coding-agent"
       "skills"
+      "herdr"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
+    onActivation.extraFlags = [ "--force-cleanup" ];
   };
 
   system.defaults = {

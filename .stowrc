@@ -5,3 +5,4 @@
 --ignore=.DS_Store
 --ignore=^personal$
 --ignore=^work$
+--ignore=^result$
