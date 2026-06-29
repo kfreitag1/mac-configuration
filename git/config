@@ -3,6 +3,19 @@
     email = kfreitag@kieran.ca
 [core]
     editor = "zed --wait"
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+    syntax-theme = Catppuccin Mocha
+[credential "https://github.com"]
+    helper = ""
+    helper = "!f() { echo username=x-access-token; echo password=$(cat /run/agenix/github-token 2>/dev/null); }; f"
+[diff]
+    colorMoved = default
 [alias]
     s = "!printf '\\033[90m> git status\\033[0m\\n' && git status \"$@\""
     c = "!printf '\\033[90m> git commit\\033[0m\\n' && git commit \"$@\""
