@@ -36,6 +36,7 @@
     fzf
     uv
     bun
+    delta
     inputs.agenix.packages.${pkgs.system}.default
   ];
 

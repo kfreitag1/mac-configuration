@@ -56,6 +56,7 @@ in
       "claude-code"
       "anki"
       "the-unarchiver"
+      "dbeaver-community"
     ];
     brews = [
       "openfst"
