@@ -65,6 +65,9 @@
   "soft_wrap": "editor_width",
   // "auto_signature_help": true,
   "agent_servers": {
+    "opencode": {
+      "type": "registry",
+    },
     "claude-acp": {
       "type": "registry",
       "default_config_options": {
@@ -81,8 +84,35 @@
   "show_signature_help_after_edits": true,
   "show_completions_on_input": true,
   "use_on_type_format": false,
-  "formatter": "prettier",
+  "formatter": "language_server",
   "languages": {
+    "TypeScript": {
+      "language_servers": [
+        "vtsls",
+        "!eslint"
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true,
+      },
+    },
+    "TSX": {
+      "language_servers": [
+        "vtsls",
+        "!eslint"
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true,
+      },
+    },
+    "JavaScript": {
+      "language_servers": [
+        "vtsls",
+        "!eslint"
+      ],
+      "code_actions_on_format": {
+        "source.organizeImports.biome": true,
+      },
+    },
     "Ruby": {
       // sorbet: types, hover, go-to-def, completion — incl. Rails model columns
       //   & associations via Tapioca's generated sorbet/rbi/dsl/** RBIs.
@@ -96,7 +126,11 @@
         "!steep",
         "!kanayago",
       ],
-      "formatter": { "language_server": { "name": "rubocop" } },
+      "formatter": {
+        "language_server": {
+          "name": "rubocop"
+        }
+      },
       "format_on_save": "on",
       "tab_size": 2,
     },
@@ -123,7 +157,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/kieran"],
+          "paths": [
+            "/home/kieran"
+          ],
         },
       ],
     },

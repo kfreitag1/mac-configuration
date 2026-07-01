@@ -23,6 +23,7 @@
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
+      "ctrl-i": "editor::ShowCompletions",
     },
   },
   {
@@ -43,19 +44,27 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-space ctrl-h": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" },
+        {
+          "direction": "left"
+        },
       ],
       "ctrl-space ctrl-j": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "down" },
+        {
+          "direction": "down"
+        },
       ],
       "ctrl-space ctrl-k": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "up" },
+        {
+          "direction": "up"
+        },
       ],
       "ctrl-space ctrl-l": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" },
+        {
+          "direction": "right"
+        },
       ],
     },
   },
